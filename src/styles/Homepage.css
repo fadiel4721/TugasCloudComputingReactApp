@@ -1,0 +1,79 @@
+/* Reset margin dan padding untuk semua elemen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Pastikan body memiliki ruang untuk navbar */
+body {
+    padding-top: 60px; /* Sesuaikan dengan tinggi navbar */
+}
+
+/* Navbar */
+.custom-navbar {
+    padding: 10px 20px;
+    position: fixed; /* Agar tetap di atas saat scroll */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Prioritaskan di atas elemen lain */
+}
+
+/* Hero Section */
+.py-5.bg-primary {
+    padding: 100px 20px; /* Tambahkan lebih banyak ruang pada hero */
+    text-align: center;
+}
+
+/* About Me Section */
+#about {
+    padding: 60px 20px;
+}
+
+/* Tambahkan jarak antara elemen heading dan gambar */
+#about h2 {
+    margin-bottom: 40px;
+}
+
+.profile-image {
+    max-width: 150px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.profile-image + p {
+    margin-top: 20px; /* Tambahkan jarak antara gambar profil dan teks */
+}
+
+/* Projects Section */
+#projects {
+    padding: 60px 20px;
+}
+
+/* Footer */
+footer {
+    padding: 40px 20px;
+    margin-top: 40px;
+    background-color: #343a40;
+    color: white;
+}
+
+/* Project Image */
+.project-image {
+    max-height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Button spacing in navbar */
+.navbar-nav .btn {
+    margin-left: 10px;
+}
+
+/* Membuat kontainer lebih lebar */
+.container {
+  max-width: 1500px; /* Perbesar lebar maksimal */
+  margin: 0 auto; /* Pusatkan konten */
+  padding: 0 15px; /* Beri padding pada sisi kiri dan kanan */
+}
