@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 // Konfigurasi Firebase
 const firebaseConfig = {
@@ -14,10 +14,31 @@ const firebaseConfig = {
 
 // Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
+console.log("Firebase berhasil diinisialisasi");
 
 // Inisialisasi Auth dan Firestore
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+// Tes koneksi Firestore
+async function testFirestoreConnection() {
+  try {
+    const querySnapshot = await getDocs(collection(db, "users")); // Ganti "testCollection" dengan nama koleksi yang ada di Firestore Anda
+    if (querySnapshot.empty) {
+      console.log("Terhubung ke Firestore, tetapi koleksi kosong.");
+    } else {
+      console.log("Terhubung ke Firestore. Data koleksi:");
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} =>`, doc.data());
+      });
+    }
+  } catch (error) {
+    console.error("Gagal terhubung ke Firestore:", error);
+  }
+}
+
+// Panggil fungsi tes koneksi Firestore
+testFirestoreConnection();
 
 // Ekspor modul
 export { auth, db };
